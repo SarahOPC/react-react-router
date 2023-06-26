@@ -1,8 +1,20 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import App from './components/App';
+import Landing from '../pages/Landing';
+import About from '../pages/About';
+import Accomodation from '../pages/Accomodation';
+import Error from '../pages/Error';
 
-<React.StrictMode>
+function MainRouter() {
+  return (
     <Router>
-      <Route path='/' element={<App />} />
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/accomodation' element={<Accomodation/>} />
+        <Route path='/error' element={<Error />} />
+      </Routes>
     </Router>
-  </React.StrictMode>
+  );
+}
+
+export default MainRouter;
