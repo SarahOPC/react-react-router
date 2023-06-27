@@ -4,22 +4,43 @@ import styled from 'styled-components';
 
 function Header() {
 
-    const Logo= styled.img`
-        margin: 2%;
-    `
+    const Header = styled.header`
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 2%
+    `;
 
+    const NavLinkItem = styled.div`
+        min-width: 9em;
+        padding: 10%;
+        display: flex;
+        justify-content: space-between;
+        margin-right: 2em;
+
+        a {
+            text-decoration: none;
+        }
+
+        .active {
+            text-decoration: underline;
+        }
+    `;
+    
     return(
-        <header className="App-header">
+        <Header className="App-header">
             <div className='logo'>
-                <Logo src={logo} className="App-logo" alt="logo" />
+                <img src={logo} alt="logo" />
             </div>
             <div className='NavLink'>
-                <NavLink to="/">Accueil</NavLink>
-                <NavLink to="/about">A propos</NavLink>
+                <NavLinkItem>
+                    {/* activeClassName prop : when a link is active ie currentPage, will have the active className */}
+                    <NavLink exact to="/" activeClassName="active">Accueil</NavLink>
+                    <NavLink to="/about" activeClassName="active">A propos</NavLink>
+                </NavLinkItem>
             </div>
-
-        </header>
-    )
+        </Header>
+    );
 }
 
-export default Header
+export default Header;

@@ -4,29 +4,36 @@ import styled from 'styled-components'
 function BackgroundImage({ backgroundImage, alt, slogan }) {
 
     const BackgroundImageDiv = styled.div `
-        background-repeat: no-repeat;
+        filter: brightness(0.7);
+        background-image: url(${backgroundImage});
         background-position: center;
         background-size: cover;
-        min-height: 30vh;
-        margin: 2%;
-        border-radius: 2em;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-image: url(${backgroundImage});
-
-    `
-
-    const SloganText = styled.p`
+        min-height: 30vh;
+        border-radius: 2em;
+        `
+        
+        const SloganText = styled.h1`
         color: #FFFFFF;
-        font-weight: 500;
-        font-size: 2.5em;
+        position: absolute;
+        top: 32%;
+        left: 35%;
+        `
+        
+    const ImageDivBkgd = styled.div`
+        margin: 2%;
+        position: relative;
+        
     `
+
     return(
         <div>
-            <BackgroundImageDiv backgroundImage={backgroundImage} alt={alt}>
-                <SloganText>{slogan}</SloganText>
-            </BackgroundImageDiv>
+            <ImageDivBkgd>
+            <BackgroundImageDiv backgroundImage={backgroundImage} alt={alt}></BackgroundImageDiv>
+            <SloganText>{slogan}</SloganText>
+            </ImageDivBkgd>
         </div>
     )
 }
