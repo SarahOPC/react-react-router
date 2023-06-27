@@ -1,5 +1,5 @@
-import React from "react"
-import styled from 'styled-components'
+import React from "react";
+import styled from 'styled-components';
 
 function BackgroundImage({ backgroundImage, alt, slogan }) {
 
@@ -13,20 +13,19 @@ function BackgroundImage({ backgroundImage, alt, slogan }) {
         align-items: center;
         min-height: 30vh;
         border-radius: 2em;
-        `
+    `;
         
         const SloganText = styled.h1`
         color: #FFFFFF;
         position: absolute;
         top: 32%;
         left: 35%;
-        `
+    `;
         
     const ImageDivBkgd = styled.div`
-        margin: 2%;
+        margin: 4%;
         position: relative;
-        
-    `
+    `;
 
     return(
         <div>
@@ -35,7 +34,7 @@ function BackgroundImage({ backgroundImage, alt, slogan }) {
             <SloganText>{slogan}</SloganText>
             </ImageDivBkgd>
         </div>
-    )
+    );
 }
 
 export default BackgroundImage;

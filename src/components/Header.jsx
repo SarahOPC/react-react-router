@@ -8,18 +8,20 @@ function Header() {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 2%
+        margin: 4%;
     `;
 
     const NavLinkItem = styled.div`
-        min-width: 9em;
+        min-width: 11em;
         padding: 10%;
         display: flex;
         justify-content: space-between;
         margin-right: 2em;
-
+        
         a {
             text-decoration: none;
+            color: #FF6060;
+            font-size: 1.5em;
         }
 
         .active {
@@ -36,7 +38,7 @@ function Header() {
                 <NavLinkItem>
                     {/* activeClassName prop : when a link is active ie currentPage, will have the active className */}
                     <NavLink exact to="/" activeClassName="active">Accueil</NavLink>
-                    <NavLink to="/about" activeClassName="active">A propos</NavLink>
+                    <NavLink to="/about" activeClassName="active">À propos</NavLink>
                 </NavLinkItem>
             </div>
         </Header>

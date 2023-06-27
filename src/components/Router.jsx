@@ -11,7 +11,7 @@ function MainRouter() {
         <Route path='/' element={<Landing />} />
         <Route path='/about' element={<About />} />
         <Route path='/accomodation' element={<Accomodation/>} />
-        <Route path='/error' element={<Error />} />
+        <Route path='/*' element={<Error />} />
       </Routes>
     </Router>
   );
