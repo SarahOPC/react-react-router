@@ -4,6 +4,7 @@ import aboutImage from "../assets/about.svg";
 import Footer from "../components/Footer";
 
 function About() {
+  
   return (
     <div>
       <Header />

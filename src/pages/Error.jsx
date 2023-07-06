@@ -2,31 +2,31 @@ import Header from "../components/Header";
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
 
-function Error() {
+const ErrorDiv = styled.div`
+  color: #FF6060;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
-  const ErrorDiv = styled.div`
+const ErrorCode = styled.h1`
+  font-size: 18em;
+  margin-block: 0em;
+`;
+
+const ErrorText = styled.h1`
+  font-size: 2.25em;
+`;
+
+const ErrorReturn = styled.p`
+  margin-block-start: 5.5em;
+
+  a {
     color: #FF6060;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `
+  }
+`;
 
-  const ErrorCode = styled.h1`
-    font-size: 18em;
-    margin-block: 0em;
-  `;
-
-  const ErrorText = styled.h1`
-    font-size: 2.25em;
-  `;
-
-  const ErrorReturn = styled.p`
-    margin-block-start: 5.5em;
-    
-    a {
-      color: #FF6060;
-    }
-  `;
+function Error() {
 
   return (
     <div>
