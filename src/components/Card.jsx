@@ -15,34 +15,28 @@ const HomeBodyContainer = styled.div`
 
 function HomeBody() {
 
-    const [dataContent, setDataContent] = useState();
-
+    const [data, setData] = useState([]);
+    
     useEffect(() => {
-        // fetch data
-        const dataFetch = async () => {
-            const dataContent = await (
-                await fetch(
-                "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P9+React+1/logements.json"
-                )
-            ).json();
-
-        // set state when the data received
-        setDataContent(dataContent);
-        };
-
-        dataFetch();
-    }, []);
+        // fetch data with the proxy url
+        fetch("/api/logements.json")
+            .then(response => response.json())
+            .then(data => {
+                console.log("Fetched data : ", data)
+                setData(data)
+            })
+            .catch(error => {
+                console.error("Error fetching data : ", error);
+            });
+    }, []); // to ensure the effect only runs once after the initial render
 
     return (
         <HomeBodyContainer>
-            <HomeBodyThumb />
-            <HomeBodyThumb />
-            <HomeBodyThumb />
-            <HomeBodyThumb />
-            <HomeBodyThumb />
-            <HomeBodyThumb />
+            {data.map((item) => (
+                <HomeBodyThumb key={item.id} title={item.title} />
+            ))}
         </HomeBodyContainer>
-    )
+    );
 }
 
 export default HomeBody;

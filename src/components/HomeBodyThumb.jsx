@@ -20,14 +20,15 @@ const ThumbTitle = styled.p`
     width: 5em;
 `;
 
-function HomeBodyThumb() {
+function HomeBodyThumb({ title }) {
+
+    console.log(title);
 
     return (
         <ThumbContainer>
-            
-            <ThumbTitle>Titre de la location</ThumbTitle>
+            <ThumbTitle>{title}</ThumbTitle>
         </ThumbContainer>
-    )
+    );
 }
 
 export default HomeBodyThumb;

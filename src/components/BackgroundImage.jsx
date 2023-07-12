@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const BackgroundImageDiv = styled.div`
   filter: brightness(0.7);
-  background-image: url(${props => props.backgroundimage});
+  background-image: url(${(props) => props.$backgroundimage});
   background-position: center;
   background-size: cover;
   display: flex;
@@ -28,7 +28,7 @@ function BackgroundImage({ backgroundImage, alt, slogan }) {
   return (
     <div>
       <ImageDivBkgd>
-        <BackgroundImageDiv backgroundimage={backgroundImage} alt={alt} />
+        <BackgroundImageDiv $backgroundimage={backgroundImage} alt={alt} />
         <SloganText>{slogan}</SloganText>
       </ImageDivBkgd>
     </div>

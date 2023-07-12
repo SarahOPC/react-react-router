@@ -37,8 +37,8 @@ function Header() {
             <div className='NavLink'>
                 <NavLinkItem>
                     {/* activeClassName prop : when a link is active ie currentPage, will have the active className */}
-                    <NavLink exact="true" to="/" activeClassName="activeclassname">Accueil</NavLink>
-                    <NavLink to="/about" activeClassName="activeclassname">À propos</NavLink>
+                    <NavLink exact={true.toString()} to="/" activeclassname="activeclassname">Accueil</NavLink>
+                    <NavLink to="/about" activeclassname="activeclassname">À propos</NavLink>
                 </NavLinkItem>
             </div>
         </HeaderContainer>
