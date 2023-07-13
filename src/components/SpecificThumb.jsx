@@ -1,9 +1,18 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import BackgroundImage from './BackgroundImage';
 
 const Element = styled.p`
-    color : black;`
+    color : black;
+`;
+
+const StyledBackgroundImage = styled(BackgroundImage)`
+    filter: brightness(0.7);
+    min-height: 30vh;    
+    min-height : 75vh;
+    filter : none;
+`;
 
 function SpecificThumb() {
     const [data, setData] = useState([]);
@@ -26,11 +35,11 @@ function SpecificThumb() {
         
         return (
             <div>
-                <Element>{ specificElement.title }</Element>
-                <Element>{ specificElement.cover }</Element>
+                <StyledBackgroundImage backgroundImage={ specificElement.cover } />
                 {specificElement.pictures.map((picture, index) => (
                     <Element key={index}>{ picture }</Element>
-                ))} {/* Using map to iterate on specificElement.pictures array */}
+                    ))} {/* Using map to iterate on specificElement.pictures array */}
+                <Element>{ specificElement.title }</Element>
                 <Element>{ specificElement.description }</Element>
                 <Element>{ specificElement.host.name }</Element>
                 <Element>{ specificElement.host.picture }</Element>
