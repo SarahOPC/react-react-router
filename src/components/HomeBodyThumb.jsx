@@ -17,7 +17,7 @@ const ThumbTitle = styled.p`
     margin-bottom: 1.5em;
     margin-inline-start: 1.5em;
     font-size: 1.13em;
-    width: 5em;
+    width: 11em;
 `;
 
 function HomeBodyThumb({ title }) {

@@ -27,6 +27,12 @@ const NavLinkItem = styled.div`
     }
 `;
 
+const NavNonActive = styled.div`
+    text-decoration: none;
+    color: #FF6060;
+    font-size: 1.5em;
+`;
+
 function Header() {
 
     return (
@@ -38,7 +44,7 @@ function Header() {
                 <NavLinkItem>
                     {/* activeClassName prop : when a link is active ie currentPage, will have the active className */}
                     <NavLink exact={true.toString()} to="/" activeclassname="activeclassname">Accueil</NavLink>
-                    <NavLink to="/about" activeclassname="activeclassname">À propos</NavLink>
+                    <NavNonActive>À propos</NavNonActive>
                 </NavLinkItem>
             </div>
         </HeaderContainer>
