@@ -9,7 +9,7 @@ function MainRouter() {
     <Router>
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='/about' element={<About />} />
+        <Route path='/about/:id' element={<About />} />
         <Route path='/accomodation' element={<Accomodation/>} />
         <Route path='/*' element={<Error />} />
       </Routes>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const ThumbContainer = styled.div`
     width: 23em;
@@ -20,14 +21,16 @@ const ThumbTitle = styled.p`
     width: 11em;
 `;
 
-function HomeBodyThumb({ title }) {
+function HomeBodyThumb({ title, id }) {
 
     console.log(title);
 
     return (
-        <ThumbContainer>
-            <ThumbTitle>{title}</ThumbTitle>
-        </ThumbContainer>
+        <Link to={`/about/${id}`}>
+            <ThumbContainer key = {id}>
+                <ThumbTitle>{title}</ThumbTitle>
+            </ThumbContainer>
+        </Link>
     );
 }
 
