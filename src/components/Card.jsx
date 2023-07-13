@@ -22,7 +22,6 @@ function HomeBody() {
         fetch("/api/logements.json")
             .then(response => response.json())
             .then(data => {
-                console.log("Fetched data : ", data)
                 setData(data)
             })
             .catch(error => {
@@ -33,7 +32,7 @@ function HomeBody() {
     return (
         <HomeBodyContainer>
             {data.map((item) => (
-                <HomeBodyThumb key={item.id} title={item.title} />
+                <HomeBodyThumb key={item.id} title={item.title} id={item.id} />
             ))}
         </HomeBodyContainer>
     );

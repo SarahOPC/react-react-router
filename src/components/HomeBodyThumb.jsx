@@ -23,10 +23,8 @@ const ThumbTitle = styled.p`
 
 function HomeBodyThumb({ title, id }) {
 
-    console.log(title);
-
     return (
-        <Link to={`/about/${id}`}>
+        <Link to={`/thumb/${id}`}>
             <ThumbContainer key = {id}>
                 <ThumbTitle>{title}</ThumbTitle>
             </ThumbContainer>

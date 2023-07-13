@@ -9,8 +9,8 @@ function MainRouter() {
     <Router>
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='/about/:id' element={<About />} />
-        <Route path='/accomodation' element={<Accomodation/>} />
+        <Route path='/about' element={<About />} />
+        <Route path='/thumb/:id' element={<Accomodation/>} />
         <Route path='/*' element={<Error />} />
       </Routes>
     </Router>
