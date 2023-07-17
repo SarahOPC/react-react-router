@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const BackgroundImageDiv = styled.div`
+const GlobalStyleProperties = styled.div`
   filter: brightness(0.7);
   background-image: url(${(props) => props.$backgroundimage});
   background-position: center;
@@ -12,6 +12,17 @@ const BackgroundImageDiv = styled.div`
   border-radius: 2em;
 `;
 
+const SpecificStyleProperties = styled.div`
+  background-image: url(${(props) => props.$backgroundimage});
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+  border-radius: 2em;
+`
+
 const SloganText = styled.h1`
   color: #FFFFFF;
   position: absolute;
@@ -20,15 +31,16 @@ const SloganText = styled.h1`
 `;
 
 const ImageDivBkgd = styled.div`
-  margin: 4%;
+  margin: 4% 4% 1% 4%;
   position: relative;
 `;
 
-function BackgroundImage({ backgroundImage, alt, slogan }) {
+function BackgroundImage({ backgroundImage, alt, slogan, isSpecificPage }) {
+  const BackgroundComponent = isSpecificPage ? SpecificStyleProperties : GlobalStyleProperties;
   return (
     <div>
       <ImageDivBkgd>
-        <BackgroundImageDiv $backgroundimage={backgroundImage} alt={alt} />
+        <BackgroundComponent $backgroundimage={backgroundImage} alt={alt} />
         <SloganText>{slogan}</SloganText>
       </ImageDivBkgd>
     </div>
