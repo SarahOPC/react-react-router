@@ -8,21 +8,35 @@ const Element = styled.p`
     color: black;
 `;
 
+const InfosContainer = styled.div`
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 4%;
+`;
+
+const OwnerAndRatingDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const TitleAndLocationAndTags = styled.div`
+`;
+
 const ElementTitle = styled.div`
     color: #FF6060;
     font-size: 2.25em;
-    margin-left: 4%;    
 `;
 
 const ElementLocation = styled.div`
     color: #FF6060;
-    margin: 1% 4%;
+    margin: 2% 0% 5% 0%;
     font-size: 1.25em;
 `;
 
 const ElementTagDiv = styled.div`
     display: flex;
-    margin: 2% 0% 2% 4%;
+    margin: 2% 0%;
 `;
 
 const ElementTag = styled.p`
@@ -32,6 +46,13 @@ const ElementTag = styled.p`
     border-radius: 0.7em;
     font-size: 1em;
     margin: 0% 1% 0% 0%;
+    width: 10em;
+    text-align: center;
+`;
+
+const HostDiv = styled.div`
+    display: flex;
+    align-items: center;
 `;
 
 const DropDownsContainer = styled.div`
@@ -47,11 +68,18 @@ const StyledDropdown = styled(Dropdown)`
 
 const ElementHostName = styled.div`
     color: #FF6060;
+    font-size: 1.5em;
+    width: 2em;
+    padding-right: 1em;
 `;
 
-const ElementHostPicture = styled.div`
-    color: #FF6060;
-    
+const ElementHostPicture = styled.img`
+    background-image: url(${(props) => props.$hostpicture});
+    background-size: cover;
+    background-position: center;
+    border-radius: 3em;
+    width: 4em;
+    height: 4em;
 `;
 
 const ElementRating = styled.div`
@@ -89,17 +117,25 @@ function SpecificThumb() {
                 {/* {specificElement.pictures.map((picture, index) => (
                     <Element key={index}>{ picture }</Element>
                     ))} {/* Using map to iterate on specificElement.pictures array */}
-                <ElementTitle>{ specificElement.title }</ElementTitle>
-                <ElementLocation>{ formattedLocation }</ElementLocation>
-                <ElementTagDiv>
-                {specificElement.tags.map((tag, index) => (
-                    <ElementTag key={index}>{ tag }</ElementTag>
-                ))}
-                    <ElementTag> { locationParts[1] }</ElementTag>
-                </ElementTagDiv>
-                <ElementHostName>{ specificElement.host.name }</ElementHostName>
-                <ElementHostPicture>{ specificElement.host.picture }</ElementHostPicture>
-                <ElementRating>{ specificElement.rating }</ElementRating>
+                <InfosContainer>
+                    <TitleAndLocationAndTags>
+                        <ElementTitle>{ specificElement.title }</ElementTitle>
+                        <ElementLocation>{ formattedLocation }</ElementLocation>
+                        <ElementTagDiv>
+                        {specificElement.tags.map((tag, index) => (
+                            <ElementTag key={index}>{ tag }</ElementTag>
+                        ))}
+                            <ElementTag> { locationParts[1] }</ElementTag>
+                        </ElementTagDiv>
+                    </TitleAndLocationAndTags>
+                    <OwnerAndRatingDiv>
+                        <HostDiv>
+                            <ElementHostName>{ specificElement.host.name }</ElementHostName>
+                            <ElementHostPicture $hostpicture={ specificElement.host.picture }/>
+                        </HostDiv>
+                        <ElementRating>{ specificElement.rating }</ElementRating>
+                    </OwnerAndRatingDiv>
+                </InfosContainer>
                 <DropDownsContainer>
                     <StyledDropdown rectangleTitle="Description" content={specificElement.description}/>
                     <StyledDropdown rectangleTitle="Équipements" content={specificElement.equipments.map((equipment, index) => (
