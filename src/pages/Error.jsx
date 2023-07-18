@@ -7,7 +7,7 @@ const ErrorDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 const ErrorCode = styled.h1`
   font-size: 18em;

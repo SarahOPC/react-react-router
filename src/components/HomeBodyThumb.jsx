@@ -11,6 +11,7 @@ const ThumbContainer = styled.div`
     padding-bottom: 1.5em;
     margin: 2%;
     border-radius: 3%;
+    margin-bottom: 3em;
 `;
 
 const ThumbTitle = styled.p`

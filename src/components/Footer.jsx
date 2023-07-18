@@ -22,7 +22,7 @@ const FooterDivPlacementLow = styled.div`
     justify-content: center;
     justify-items: center;
     margin-bottom: 1em;
-`
+`;
 
 function Footer() {
 

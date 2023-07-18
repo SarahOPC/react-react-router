@@ -11,7 +11,7 @@ const HomeBodyContainer = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     margin: 4%;
-`
+`;
 
 function HomeBody() {
 
