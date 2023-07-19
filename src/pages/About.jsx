@@ -13,7 +13,8 @@ function About() {
       <DropDown rectangleTitle="Fiabilité" content="" />
       <DropDown 
         rectangleTitle="Respect" 
-        content="La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme." />
+        content="La bienveillance fait partie des valeurs fondatrices de Kasa. 
+        Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme." />
       <DropDown rectangleTitle="Service" content=""/>
       <DropDown rectangleTitle="Sécurtité" content=""/>
       <Footer />
