@@ -6,7 +6,7 @@ import ChevronDownIcon from '../assets/chevron-down.png';
 const TitleRectangle = styled.div`
     background-color: #FF6060;
     color: #FFFFFF;
-    padding: 1.5%;
+    padding: 0.5em;
     border-radius: 0.5em;
     cursor: pointer;
     display: flex;
