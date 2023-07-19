@@ -32,13 +32,13 @@ const ElementTitle = styled.div`
 
 const ElementLocation = styled.div`
     color: #FF6060;
-    margin: 2% 0% 5% 0%;
+    margin: 2% 0% 0% 0%;
     font-size: 1.25em;
 `;
 
 const ElementTagDiv = styled.div`
     display: flex;
-    margin: 2% 0%;
+    margin: 3em 0em;
 `;
 
 const ElementTag = styled.p`
@@ -65,7 +65,6 @@ const DropDownsContainer = styled.div`
 
 const StyledDropdown = styled(Dropdown)`
     flex: 1;
-    width: 50%;
     margin-right: 1em;
 `;
 
@@ -88,7 +87,7 @@ const ElementHostPicture = styled.img`
 
 const RatingToZero = styled.div`
     display: flex;
-    margin: 30% 0%;
+    margin: 3em 0em;
 `;
 
 const RatingToOne = styled.div`
@@ -116,6 +115,10 @@ const RatingToFive = styled.div`
     margin: 30% 0%;
 `;
 
+const DividingDiv = styled.div`
+    width: 50%;
+    margin-right: 1em;
+`;
 
 function SpecificThumb() {
     const [data, setData] = useState([]);
@@ -206,10 +209,14 @@ function SpecificThumb() {
                     </OwnerAndRatingDiv>
                 </InfosContainer>
                 <DropDownsContainer>
-                    <StyledDropdown rectangleTitle="Description" content={specificElement.description}/>
-                    <StyledDropdown rectangleTitle="Équipements" content={specificElement.equipments.map((equipment, index) => (
-                        <Element key={index}>{ equipment }</Element>
-                    ))} />
+                    <DividingDiv>
+                        <StyledDropdown rectangleTitle="Description" content={specificElement.description}/>
+                    </DividingDiv>
+                    <DividingDiv>
+                        <StyledDropdown rectangleTitle="Équipements" content={specificElement.equipments.map((equipment, index) => (
+                            <Element key={index}>{ equipment }</Element>
+                        ))} />
+                    </DividingDiv>
                 </DropDownsContainer>
             </div>
         );
