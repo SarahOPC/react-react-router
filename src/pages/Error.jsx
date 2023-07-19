@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
+import Footer from "../components/Footer";
 
 const ErrorDiv = styled.div`
   color: #FF6060;
@@ -23,6 +24,7 @@ const ErrorReturn = styled.p`
 
   a {
     color: #FF6060;
+    font-size: 0.75em;
   }
 `;
 
@@ -40,6 +42,7 @@ function Error() {
           </NavLink>
         </ErrorReturn>
       </ErrorDiv>
+      <Footer />
     </div>
   );
 }
