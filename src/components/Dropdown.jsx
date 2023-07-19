@@ -35,7 +35,6 @@ const ContentRectangle = styled.div`
 const DescriptionTotalRectangle = styled.div`
     background-color: #F6F6F6;
     border-radius: 0em 0em 0.5em 0.5em;
-    width: 80vh;
 `;
 
 function DropDown({ rectangleTitle, content }) {

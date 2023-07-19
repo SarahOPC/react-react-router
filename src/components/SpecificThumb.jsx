@@ -65,7 +65,8 @@ const DropDownsContainer = styled.div`
 
 const StyledDropdown = styled(Dropdown)`
     flex: 1;
-    width: 100%;
+    width: 50%;
+    margin-right: 1em;
 `;
 
 const ElementHostName = styled.div`

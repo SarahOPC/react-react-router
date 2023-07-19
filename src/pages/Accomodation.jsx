@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import SpecificThumb from "../components/SpecificThumb";
 
@@ -6,6 +7,7 @@ function Accomodation() {
     <div>
         <Header />
         <SpecificThumb />
+        <Footer />
     </div>
   );
 }
