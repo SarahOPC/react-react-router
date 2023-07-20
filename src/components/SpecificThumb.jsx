@@ -5,6 +5,8 @@ import BackgroundImage from './BackgroundImage';
 import Dropdown from './Dropdown';
 import InactiveStar from '../assets/star-inactive.png';
 import ActiveStar from '../assets/star-active.png';
+import ToLeftArrow from '../assets/toLeftArrow.png';
+import ToRightArrow from '../assets/toRightArrow.png';
 
 const Element = styled.p`
     color: black;
@@ -60,7 +62,7 @@ const HostDiv = styled.div`
 const DropDownsContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    margin: 4% 4% 15% 4%;
+    margin: 4% 4% 4% 4%;
 `;
 
 const StyledDropdown = styled(Dropdown)`
@@ -120,9 +122,41 @@ const DividingDiv = styled.div`
     margin-right: 1em;
 `;
 
+const ContainerSlideShow = styled.div`
+    position: relative;
+`;
+
+const Arrows = styled.div`
+    position: absolute;
+    top: 42%;
+    width: 100%;
+`;
+
+const LeftArrow = styled.div`
+    position: absolute;
+    left: 5%;
+    cursor: pointer;
+`;
+
+const RightArrow = styled.div`
+    position: absolute;
+    right: 5%;
+    cursor: pointer;
+`;
+
+const CounterDiv = styled.div`
+    position: absolute;
+    bottom: 4%;
+    left: 48%;
+    font-size: 2em;
+    color: #FFFFFF;
+`;
+
 function SpecificThumb() {
     const [data, setData] = useState([]);
     const urlId = useParams();
+    // For the carousel
+    const [currentIndex, setCurrentIndex] = useState(0);
     
     useEffect(() => {
         // fetch data with the proxy url
@@ -169,13 +203,36 @@ function SpecificThumb() {
                 RatingComponent = RatingToZero;
                 break;
         }
+
+        const handleNextImage = () => {
+            // prevIndex is the index of the picture before the update so the currentIndex before update
+            // % = modulo operation = % calculate the remainder of the division between the value on the left side and the value on the right side 
+            // ie here value of prevIndex by the length of the array so result = new index value. Loops back to 0 when length 
+            // example of % use : 15 % 4 = 3 because 15 / 4 = 3 --- 3 * 4 = 12 --- 15 - 12 = 3
+            // what stays after dividing 10 by 3 is 1
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % specificElement.pictures.length);
+        };
         
+        const handlePreviousImage = () => {
+            setCurrentIndex((prevIndex) => prevIndex === 0 ? specificElement.pictures.length - 1 : prevIndex - 1);
+        };
+
         return (
             <div>
-                <BackgroundImage isSpecificPage={true} backgroundImage={ specificElement.cover } />
-                {/* {specificElement.pictures.map((picture, index) => (
-                    <Element key={index}>{ picture }</Element>
-                    ))} {/* Using map to iterate on specificElement.pictures array */}
+                <ContainerSlideShow>
+                    <BackgroundImage isSpecificPage={true} backgroundImage={ specificElement.pictures[currentIndex] } alt="Pictures of the property"/>
+                    <Arrows>
+                        <LeftArrow>
+                            <img src={ToLeftArrow} alt="To left arrow" onClick={handlePreviousImage} />
+                        </LeftArrow>
+                        <RightArrow>
+                            <img src={ToRightArrow} alt="To right arrow" onClick={handleNextImage} />
+                        </RightArrow>
+                    </Arrows>
+                        <CounterDiv>
+                            <div>{ currentIndex + 1 } / { specificElement.pictures.length }</div>
+                        </CounterDiv>
+                </ContainerSlideShow>
                 <InfosContainer>
                     <TitleAndLocationAndTags>
                         <ElementTitle>{ specificElement.title }</ElementTitle>
