@@ -13,10 +13,20 @@ const ErrorDiv = styled.div`
 const ErrorCode = styled.h1`
   font-size: 18em;
   margin-block: 0em;
+
+  @media (max-width: 450px) {
+    font-size: 7em;
+    margin-top: 1em;
+  }
 `;
 
 const ErrorText = styled.h1`
   font-size: 2.25em;
+
+  @media (max-width: 450px) {
+    font-size: 1.5em;
+    font-weight: 400;
+  }
 `;
 
 const ErrorReturn = styled.p`
