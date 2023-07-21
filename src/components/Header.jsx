@@ -10,7 +10,7 @@ const HeaderContainer = styled.header`
 `;
 
 const NavLinkItem = styled.div`
-    min-width: 11em;
+    min-width: 13em;
     padding: 10%;
     display: flex;
     justify-content: space-between;
@@ -27,12 +27,18 @@ const NavLinkItem = styled.div`
     }
 `;
 
+const StyledImage = styled.img`
+    @media (max-width: 450px) {
+        width: 7em;
+    }
+`;
+
 function Header() {
 
     return (
         <HeaderContainer className="App-header">
             <div className='logo'>
-                <img src={logo} alt="logo" />
+                <StyledImage src={logo} alt="logo" />
             </div>
             <div className='NavLink'>
                 <NavLinkItem>

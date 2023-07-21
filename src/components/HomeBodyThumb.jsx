@@ -12,6 +12,12 @@ const ThumbContainer = styled.div`
     margin: 2%;
     border-radius: 3%;
     margin-bottom: 3em;
+
+    @media (max-width: 450px) {
+        width: 20.5em;
+        margin: 3% 0%;
+        height: 15em;
+    }
 `;
 
 const ThumbTitle = styled.p`

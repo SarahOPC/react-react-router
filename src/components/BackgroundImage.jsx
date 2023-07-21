@@ -10,6 +10,10 @@ const GlobalStyleProperties = styled.div`
   align-items: center;
   min-height: 30vh;
   border-radius: 2em;
+
+  @media (max-width: 450px) {
+    min-height: 15vh;
+  }
 `;
 
 const SpecificStyleProperties = styled.div`
@@ -28,6 +32,13 @@ const SloganText = styled.h1`
   position: absolute;
   top: 32%;
   left: 35%;
+
+  @media (max-width: 450px) {
+    top: 11%;
+    left: 6%;
+    font-weight: 400;
+    white-space: pre-wrap;
+  }
 `;
 
 const ImageDivBkgd = styled.div`
@@ -37,14 +48,28 @@ const ImageDivBkgd = styled.div`
 
 function BackgroundImage({ backgroundImage, alt, slogan, isSpecificPage }) {
   const BackgroundComponent = isSpecificPage ? SpecificStyleProperties : GlobalStyleProperties;
-  return (
-    <div>
+
+  if(slogan !== undefined) {
+    // Add a /br after each ", "
+    const formattedSlogan = slogan.replace(/, /g, ',\n');
+    
+    return (
+      <div>
       <ImageDivBkgd>
         <BackgroundComponent $backgroundimage={backgroundImage} alt={alt} />
-        <SloganText>{slogan}</SloganText>
+        <SloganText>{formattedSlogan}</SloganText>
       </ImageDivBkgd>
-    </div>
-  );
+      </div>
+    );
+  } else {
+    return (
+      <div>
+      <ImageDivBkgd>
+        <BackgroundComponent $backgroundimage={backgroundImage} alt={alt} />
+      </ImageDivBkgd>
+      </div>
+    );
+  }
 }
 
 export default BackgroundImage;

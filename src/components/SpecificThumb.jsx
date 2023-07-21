@@ -17,11 +17,20 @@ const InfosContainer = styled.div`
     align-items: baseline;
     justify-content: space-between;
     margin: 4%;
+
+    @media (max-width: 450px) {
+        flex-direction: column;
+    }
 `;
 
 const OwnerAndRatingDiv = styled.div`
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 450px) {
+        flex-direction: row-reverse;
+        font-size: 0.5em;
+    }
 `;
 
 const TitleAndLocationAndTags = styled.div`
@@ -30,17 +39,35 @@ const TitleAndLocationAndTags = styled.div`
 const ElementTitle = styled.div`
     color: #FF6060;
     font-size: 2.25em;
+
+    @media (max-width: 450px) {
+        font-size: 1.5em;
+    }
 `;
 
 const ElementLocation = styled.div`
     color: #FF6060;
     margin: 2% 0% 0% 0%;
     font-size: 1.25em;
+
+    @media (max-width: 450px) {
+        font-size: 0.75em;
+    }
 `;
 
 const ElementTagDiv = styled.div`
     display: flex;
     margin: 3em 0em;
+    
+        @media (max-width: 450px) {
+            width: 17em;
+        }
+
+    p {
+        @media (max-width: 450px) {
+            font-size: 0.75em;
+        }
+    }
 `;
 
 const ElementTag = styled.p`
@@ -57,12 +84,22 @@ const ElementTag = styled.p`
 const HostDiv = styled.div`
     display: flex;
     align-items: center;
+
+    @media (max-width: 450px) {
+        margin-left: 7em;
+        margin-bottom: 4em;
+    }
 `;
 
 const DropDownsContainer = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 4% 4% 4% 4%;
+
+    @media (max-width: 450px) {
+        flex-direction: column;
+        width: 80vh
+    }
 `;
 
 const StyledDropdown = styled(Dropdown)`
@@ -90,31 +127,55 @@ const ElementHostPicture = styled.img`
 const RatingToZero = styled.div`
     display: flex;
     margin: 3em 0em;
+
+    @media (max-width: 450px) {
+        margin: 1em 0em 5em 0em;
+    }
 `;
 
 const RatingToOne = styled.div`
     display: flex;
     margin: 30% 0%;
+
+    @media (max-width: 450px) {
+        margin: 1em 0em;
+    }
 `;
 
 const RatingToTwo = styled.div`
     display: flex;
     margin: 30% 0%;
+
+    @media (max-width: 450px) {
+        margin: 1em 0em;
+    }
 `;
 
 const RatingToThree = styled.div`
     display: flex;
     margin: 30% 0%;
+
+    @media (max-width: 450px) {
+        margin: 1em 0em;
+    }
 `;
 
 const RatingToFour = styled.div`
     display: flex;
     margin: 30% 0%;
+
+    @media (max-width: 450px) {
+        margin: 1em 0em;
+    }
 `;
 
 const RatingToFive = styled.div`
     display: flex;
     margin: 30% 0%;
+
+    @media (max-width: 450px) {
+        margin: 1em 0em;
+    }
 `;
 
 const DividingDiv = styled.div`
@@ -136,12 +197,24 @@ const LeftArrow = styled.div`
     position: absolute;
     left: 5%;
     cursor: pointer;
+
+    img {
+        @media (max-width: 450px) {
+            width: 2em;
+        }
+    }
 `;
 
 const RightArrow = styled.div`
     position: absolute;
     right: 5%;
     cursor: pointer;
+
+    img {
+        @media (max-width: 450px) {
+            width: 2em;
+        }
+    }
 `;
 
 const CounterDiv = styled.div`
@@ -150,6 +223,10 @@ const CounterDiv = styled.div`
     left: 48%;
     font-size: 2em;
     color: #FFFFFF;
+
+    @media (max-width: 450px) {
+        display: none;
+    }
 `;
 
 function SpecificThumb() {
@@ -221,6 +298,7 @@ function SpecificThumb() {
             <div>
                 <ContainerSlideShow>
                     <BackgroundImage isSpecificPage={true} backgroundImage={ specificElement.pictures[currentIndex] } alt="Pictures of the property"/>
+                    {specificElement.pictures.length > 1 && (
                     <Arrows>
                         <LeftArrow>
                             <img src={ToLeftArrow} alt="To left arrow" onClick={handlePreviousImage} />
@@ -229,9 +307,12 @@ function SpecificThumb() {
                             <img src={ToRightArrow} alt="To right arrow" onClick={handleNextImage} />
                         </RightArrow>
                     </Arrows>
-                        <CounterDiv>
-                            <div>{ currentIndex + 1 } / { specificElement.pictures.length }</div>
-                        </CounterDiv>
+                    )}
+                    {specificElement.pictures.length > 1 && (
+                    <CounterDiv>
+                        <div>{ currentIndex + 1 } / { specificElement.pictures.length }</div>
+                    </CounterDiv>
+                    )}
                 </ContainerSlideShow>
                 <InfosContainer>
                     <TitleAndLocationAndTags>
