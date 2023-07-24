@@ -25,6 +25,10 @@ const SpecificStyleProperties = styled.div`
   align-items: center;
   min-height: 75vh;
   border-radius: 2em;
+
+  @media (max-width: 450px) {
+    min-height: 33vh;
+  }
 `;
 
 const SloganText = styled.h1`

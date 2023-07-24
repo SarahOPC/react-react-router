@@ -26,6 +26,7 @@ const ErrorText = styled.h1`
   @media (max-width: 450px) {
     font-size: 1.5em;
     font-weight: 400;
+    text-align: center;
   }
 `;
 

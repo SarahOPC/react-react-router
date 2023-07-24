@@ -61,6 +61,7 @@ const ElementTagDiv = styled.div`
     
         @media (max-width: 450px) {
             width: 17em;
+            margin: 0.5em 0em;
         }
 
     p {
@@ -129,7 +130,14 @@ const RatingToZero = styled.div`
     margin: 3em 0em;
 
     @media (max-width: 450px) {
-        margin: 1em 0em 5em 0em;
+        margin: 1em 9em 5em 0em;
+    }
+
+    img {
+        @media (max-width: 450px) {
+            width: 3em;
+            height: 3em;
+        }
     }
 `;
 

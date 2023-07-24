@@ -7,6 +7,10 @@ import styled from 'styled-components';
 
 const AboutDropdownContainer = styled.div`
   margin: 0% 15%;
+
+  @media (max-width: 450px) {
+    margin: 10% 5%;
+  }
 `
 
 function About() {
@@ -14,7 +18,7 @@ function About() {
   return (
     <div>
       <Header />
-      <BackgroundImage backgroundImage={aboutImage} alt="Vue de montagnes" />
+      <BackgroundImage isSpecificPage={true} backgroundImage={aboutImage} alt="Vue de montagnes" />
       <AboutDropdownContainer>
         <DropDown rectangleTitle="Fiabilité" content="Les annonces postées sur Kasa garantissent une fiabilité totale. 
         Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées  par nos équipes." />
