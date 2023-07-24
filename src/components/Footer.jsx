@@ -13,6 +13,11 @@ const FooterDiv = styled.div`
     p {
         color: #FFFFFF;
         font-size: 1.5em;
+        
+        @media (max-width: 450px) {
+            font-size: 0.75em;
+            margin: 3em 0em;
+        }
     }
 `;
 
