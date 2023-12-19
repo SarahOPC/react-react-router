@@ -25,6 +25,7 @@ const ContentRectangle = styled.div`
     color: #FF6060;
     margin: 3% 0%;
     padding: 1.5% 2.5% 5.5% 1.5%;
+    height: ${(props) => props.customHeight};
 
     p {
         color: #FF6060;
@@ -38,7 +39,7 @@ const DescriptionTotalRectangle = styled.div`
     border-radius: 0em 0em 0.5em 0.5em;
 `;
 
-function DropDown({ rectangleTitle, content }) {
+function DropDown({ rectangleTitle, content, customHeight }) {
     const [isOpen, setIsOpen] = useState(false);
 
 // useEffect not written because we don't have any specific side effects to handle based on the 'isOpen' state
@@ -55,7 +56,7 @@ function DropDown({ rectangleTitle, content }) {
                     <ChevronIcon src={isOpen ? ChevronUpIcon : ChevronDownIcon} alt="Chevron Icon" />
                 </TitleRectangle>
                 {isOpen && (
-                    <ContentRectangle>{ content }</ContentRectangle>
+                    <ContentRectangle customHeight={customHeight}>{ content }</ContentRectangle>
                 )}
             </DescriptionTotalRectangle>
         </div>

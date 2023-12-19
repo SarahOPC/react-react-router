@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 import BackgroundImage from './BackgroundImage';
 import Dropdown from './Dropdown';
@@ -16,7 +17,7 @@ const InfosContainer = styled.div`
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    margin: 4%;
+    margin: 1% 4%;
 
     @media (max-width: 450px) {
         flex-direction: column;
@@ -57,7 +58,7 @@ const ElementLocation = styled.div`
 
 const ElementTagDiv = styled.div`
     display: flex;
-    margin: 3em 0em;
+    margin: 1em 0em;
     
         @media (max-width: 450px) {
             width: 17em;
@@ -95,7 +96,7 @@ const HostDiv = styled.div`
 const DropDownsContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    margin: 4% 4% 4% 4%;
+    margin: 1% 4% 3% 4%;
 
     @media (max-width: 450px) {
         flex-direction: column;
@@ -106,6 +107,7 @@ const DropDownsContainer = styled.div`
 const StyledDropdown = styled(Dropdown)`
     flex: 1;
     margin-right: 1em;
+    height: ${(props) => props.customHeight};
 `;
 
 const ElementHostName = styled.div`
@@ -127,7 +129,7 @@ const ElementHostPicture = styled.img`
 
 const RatingToZero = styled.div`
     display: flex;
-    margin: 3em 0em;
+    margin: 1em 0em;
 
     @media (max-width: 450px) {
         margin: 1em 9em 5em 0em;
@@ -240,6 +242,10 @@ const CounterDiv = styled.div`
 function SpecificThumb() {
     const [data, setData] = useState([]);
     const urlId = useParams();
+    const [isValidUrlId, setIsValidUrlId] = useState(true);
+    const [specificElement, setSpecificElement] = useState(null);
+    const [location, setLocation] =useState(null);
+    const [partOfLocation, setPartOfLocation] =useState(null);
     // For the carousel
     const [currentIndex, setCurrentIndex] = useState(0);
     
@@ -255,118 +261,135 @@ function SpecificThumb() {
         });
     }, []);
     
-    if (data.length > 0) {
-        const specificElement = data.find(element => element.id === urlId.id);
-        
-        const locationParts = specificElement.location.split(" - ");
-        const cityParts = locationParts[1].split(" ");
-        const city = cityParts[0];
-        const formattedLocation = city + ", " + locationParts[0];
-        
-        let RatingComponent;
+    useEffect(() => {
+        if (data.length > 0) {
+            const foundElement = data.find(element => element.id === urlId.id);
+            
+            if(foundElement){
+                const locationParts = foundElement.location.split(" - ");
+                const cityParts = locationParts[1].split(" ");
+                const city = cityParts[0];
+                const formattedLocation = city + ", " + locationParts[0];
+                setSpecificElement(foundElement);
+                setLocation(formattedLocation);
+                setPartOfLocation(locationParts);
+                setIsValidUrlId(true);
+            } else {
+                setIsValidUrlId(false);
+            }
+        }
+    }, [data, urlId.id]);
 
-        switch(specificElement.tag) {
-            case 0:
-                RatingComponent = RatingToZero;
-                break;
+    if(!isValidUrlId) {
+        return <Navigate to="/error" />;
+    }
+
+    if(!specificElement) {
+        return null;
+    }
+            let RatingComponent;
+
+            switch(specificElement.tag) {
+                case 0:
+                    RatingComponent = RatingToZero;
+                    break;
                 case 1:
                     RatingComponent = RatingToOne;
                     break;
-            case 2:
-                RatingComponent = RatingToTwo;
-                break;
-            case 3:
-                RatingComponent = RatingToThree;
-                break;
-            case 4:
-                RatingComponent = RatingToFour;
-                break;
-            case 5:
-                RatingComponent = RatingToFive;
-                break;
-            default:
-                RatingComponent = RatingToZero;
-                break;
-        }
+                case 2:
+                    RatingComponent = RatingToTwo;
+                    break;
+                case 3:
+                    RatingComponent = RatingToThree;
+                    break;
+                case 4:
+                    RatingComponent = RatingToFour;
+                    break;
+                case 5:
+                    RatingComponent = RatingToFive;
+                    break;
+                default:
+                    RatingComponent = RatingToZero;
+                    break;
+            }
 
-        const handleNextImage = () => {
-            // prevIndex is the index of the picture before the update so the currentIndex before update
-            // % = modulo operation = % calculate the remainder of the division between the value on the left side and the value on the right side 
-            // ie here value of prevIndex by the length of the array so result = new index value. Loops back to 0 when length 
-            // example of % use : 15 % 4 = 3 because 15 / 4 = 3 --- 3 * 4 = 12 --- 15 - 12 = 3
-            // what stays after dividing 10 by 3 is 1
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % specificElement.pictures.length);
-        };
-        
-        const handlePreviousImage = () => {
-            setCurrentIndex((prevIndex) => prevIndex === 0 ? specificElement.pictures.length - 1 : prevIndex - 1);
-        };
+            const handleNextImage = () => {
+                // prevIndex is the index of the picture before the update so the currentIndex before update
+                // % = modulo operation = % calculate the remainder of the division between the value on the left side and the value on the right side 
+                // ie here value of prevIndex by the length of the array so result = new index value. Loops back to 0 when length 
+                // example of % use : 15 % 4 = 3 because 15 / 4 = 3 --- 3 * 4 = 12 --- 15 - 12 = 3
+                // what stays after dividing 10 by 3 is 1
+                setCurrentIndex((prevIndex) => (prevIndex + 1) % specificElement.pictures.length);
+            };
+            
+            const handlePreviousImage = () => {
+                setCurrentIndex((prevIndex) => prevIndex === 0 ? specificElement.pictures.length - 1 : prevIndex - 1);
+            };
 
-        return (
-            <div>
-                <ContainerSlideShow>
-                    <BackgroundImage isSpecificPage={true} backgroundImage={ specificElement.pictures[currentIndex] } alt="Pictures of the property"/>
-                    {specificElement.pictures.length > 1 && (
-                    <Arrows>
-                        <LeftArrow>
-                            <img src={ToLeftArrow} alt="To left arrow" onClick={handlePreviousImage} />
-                        </LeftArrow>
-                        <RightArrow>
-                            <img src={ToRightArrow} alt="To right arrow" onClick={handleNextImage} />
-                        </RightArrow>
-                    </Arrows>
-                    )}
-                    {specificElement.pictures.length > 1 && (
-                    <CounterDiv>
-                        <div>{ currentIndex + 1 } / { specificElement.pictures.length }</div>
-                    </CounterDiv>
-                    )}
-                </ContainerSlideShow>
-                <InfosContainer>
-                    <TitleAndLocationAndTags>
-                        <ElementTitle>{ specificElement.title }</ElementTitle>
-                        <ElementLocation>{ formattedLocation }</ElementLocation>
-                        <ElementTagDiv>
-                        {specificElement.tags.map((tag, index) => (
-                            <ElementTag key={index}>{ tag }</ElementTag>
-                        ))}
-                            <ElementTag> { locationParts[1] }</ElementTag>
-                        </ElementTagDiv>
-                    </TitleAndLocationAndTags>
-                    <OwnerAndRatingDiv>
-                        <HostDiv>
-                            <ElementHostName>{ specificElement.host.name }</ElementHostName>
-                            <ElementHostPicture $hostpicture={ specificElement.host.picture }/>
-                        </HostDiv>
-                        <RatingComponent>
-                            {/* Array.from create an array and length: 5 gives it an length of 5 elements */}
-                            {/* (_, index) => Arrow function to map into each element in the array where _ value is the current element (none so use of _ to precise we don't use it 
-                            and index for the index of the current elementin the array) */}
-                            {/* Checking if the current index is less than the rating valueof the specific element. If true = ActiveStar, If false = InactiveStar */}
-                            {/* For each star, we will create an <img> - executed five times because of length: 5 */}
-                            {Array.from({ length: 5 }, (_, index) => (
-                            <img
-                                key={index}
-                                src={index < specificElement.rating ? ActiveStar : InactiveStar}
-                                alt={`Rating of ${index + 1}`}
-                            />
+            return (
+                <div>
+                    <ContainerSlideShow>
+                        <BackgroundImage isSpecificPage={true} backgroundImage={ specificElement.pictures[currentIndex] } alt="Pictures of the property"/>
+                        {specificElement.pictures.length > 1 && (
+                        <Arrows>
+                            <LeftArrow>
+                                <img src={ToLeftArrow} alt="To left arrow" onClick={handlePreviousImage} />
+                            </LeftArrow>
+                            <RightArrow>
+                                <img src={ToRightArrow} alt="To right arrow" onClick={handleNextImage} />
+                            </RightArrow>
+                        </Arrows>
+                        )}
+                        {specificElement.pictures.length > 1 && (
+                        <CounterDiv>
+                            <div>{ currentIndex + 1 } / { specificElement.pictures.length }</div>
+                        </CounterDiv>
+                        )}
+                    </ContainerSlideShow>
+                    <InfosContainer>
+                        <TitleAndLocationAndTags>
+                            <ElementTitle>{ specificElement.title }</ElementTitle>
+                            <ElementLocation>{ location }</ElementLocation>
+                            <ElementTagDiv>
+                            {specificElement.tags.map((tag, index) => (
+                                <ElementTag key={index}>{ tag }</ElementTag>
                             ))}
-                        </RatingComponent>
-                    </OwnerAndRatingDiv>
-                </InfosContainer>
-                <DropDownsContainer>
-                    <DividingDiv>
-                        <StyledDropdown rectangleTitle="Description" content={specificElement.description}/>
-                    </DividingDiv>
-                    <DividingDiv>
-                        <StyledDropdown rectangleTitle="Équipements" content={specificElement.equipments.map((equipment, index) => (
-                            <Element key={index}>{ equipment }</Element>
-                        ))} />
-                    </DividingDiv>
-                </DropDownsContainer>
-            </div>
-        );
-    }
-}
+                                <ElementTag> { partOfLocation[1] }</ElementTag>
+                            </ElementTagDiv>
+                        </TitleAndLocationAndTags>
+                        <OwnerAndRatingDiv>
+                            <HostDiv>
+                                <ElementHostName>{ specificElement.host.name }</ElementHostName>
+                                <ElementHostPicture $hostpicture={ specificElement.host.picture }/>
+                            </HostDiv>
+                            <RatingComponent>
+                                {/* Array.from create an array and length: 5 gives it an length of 5 elements */}
+                                {/* (_, index) => Arrow function to map into each element in the array where _ value is the current element (none so use of _ to precise we don't use it 
+                                and index for the index of the current elementin the array) */}
+                                {/* Checking if the current index is less than the rating valueof the specific element. If true = ActiveStar, If false = InactiveStar */}
+                                {/* For each star, we will create an <img> - executed five times because of length: 5 */}
+                                {Array.from({ length: 5 }, (_, index) => (
+                                <img
+                                    key={index}
+                                    src={index < specificElement.rating ? ActiveStar : InactiveStar}
+                                    alt={`Rating of ${index + 1}`}
+                                />
+                                ))}
+                            </RatingComponent>
+                        </OwnerAndRatingDiv>
+                    </InfosContainer>
+                    <DropDownsContainer>
+                        <DividingDiv>
+                            <StyledDropdown rectangleTitle="Description" content={specificElement.description} customHeight="11em" />
+                        </DividingDiv>
+                        <DividingDiv>
+                            <StyledDropdown rectangleTitle="Équipements" content={specificElement.equipments.map((equipment, index) => (
+                                <Element key={index}>{ equipment }</Element>
+                            ))} customHeight="11em" />
+                        </DividingDiv>
+                    </DropDownsContainer>
+                </div>
+            );
+        }
 
 export default SpecificThumb;

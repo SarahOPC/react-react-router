@@ -10,7 +10,7 @@ const HomeBodyContainer = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 4%;
+    margin: 2% 4% 1% 4%;
 `;
 
 function HomeBody() {
@@ -32,7 +32,7 @@ function HomeBody() {
     return (
         <HomeBodyContainer>
             {data.map((item) => (
-                <HomeBodyThumb key={item.id} title={item.title} id={item.id} />
+                <HomeBodyThumb key={item.id} title={item.title} id={item.id} cover={item.cover} />
             ))}
         </HomeBodyContainer>
     );
