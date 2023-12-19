@@ -8,7 +8,7 @@ import styled from 'styled-components';
 const AboutDropdownContainer = styled.div`
   margin: 0% 15%;
 
-  @media (max-width: 450px) {
+  @media (max-width: 490px) {
     margin: 10% 5%;
   }
 `

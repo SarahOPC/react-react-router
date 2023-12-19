@@ -28,7 +28,7 @@ const NavLinkItem = styled.div`
 `;
 
 const StyledImage = styled.img`
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         width: 7em;
     }
 `;

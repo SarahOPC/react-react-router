@@ -11,8 +11,8 @@ const ThumbContainer = styled.div`
     margin: 3% 0% 12% 0%;
     border-radius: 3%;
 
-    @media (max-width: 450px) {
-        width: 20.5em;
+    @media (max-width: 500px) {
+        width: 19em;
         margin: 3% 0%;
         height: 15em;
     }
@@ -24,12 +24,21 @@ const ThumbTitle = styled.p`
     margin-inline-start: 1.5em;
     font-size: 1.13em;
     width: 11em;
+
+    @media (max-width: 490px) {
+        margin-top: 13%;
+    }
 `;
 
 const Picture = styled.img`
     width: 19em;
     height: 14em;
     border-radius: 0.5em;
+
+    @media (max-width: 490px) {
+        width: 11em;
+        height: 9em;
+      }
 `;
 
 const PictureContainer = styled.div`
@@ -38,6 +47,10 @@ const PictureContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     margin: 5% 0% 13% 0%;
+
+    @media (max-width: 490px) {
+        margin: 5% 0% 0% 0%;
+      }
 `;
 
 function HomeBodyThumb({ title, id, cover }) {

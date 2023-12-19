@@ -11,6 +11,7 @@ import ToRightArrow from '../assets/toRightArrow.png';
 
 const Element = styled.p`
     color: black;
+    margin: 2% 0%;
 `;
 
 const InfosContainer = styled.div`
@@ -19,7 +20,7 @@ const InfosContainer = styled.div`
     justify-content: space-between;
     margin: 1% 4%;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         flex-direction: column;
     }
 `;
@@ -28,7 +29,7 @@ const OwnerAndRatingDiv = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         flex-direction: row-reverse;
         font-size: 0.5em;
     }
@@ -41,7 +42,7 @@ const ElementTitle = styled.div`
     color: #FF6060;
     font-size: 2.25em;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         font-size: 1.5em;
     }
 `;
@@ -51,7 +52,7 @@ const ElementLocation = styled.div`
     margin: 2% 0% 0% 0%;
     font-size: 1.25em;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         font-size: 0.75em;
     }
 `;
@@ -60,13 +61,13 @@ const ElementTagDiv = styled.div`
     display: flex;
     margin: 1em 0em;
     
-        @media (max-width: 450px) {
+        @media (max-width: 490px) {
             width: 17em;
             margin: 0.5em 0em;
         }
 
     p {
-        @media (max-width: 450px) {
+        @media (max-width: 490px) {
             font-size: 0.75em;
         }
     }
@@ -87,7 +88,7 @@ const HostDiv = styled.div`
     display: flex;
     align-items: center;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         margin-left: 7em;
         margin-bottom: 4em;
     }
@@ -98,9 +99,8 @@ const DropDownsContainer = styled.div`
     justify-content: space-between;
     margin: 1% 4% 3% 4%;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         flex-direction: column;
-        width: 80vh
     }
 `;
 
@@ -131,12 +131,12 @@ const RatingToZero = styled.div`
     display: flex;
     margin: 1em 0em;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         margin: 1em 9em 5em 0em;
     }
 
     img {
-        @media (max-width: 450px) {
+        @media (max-width: 490px) {
             width: 3em;
             height: 3em;
         }
@@ -147,7 +147,7 @@ const RatingToOne = styled.div`
     display: flex;
     margin: 30% 0%;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         margin: 1em 0em;
     }
 `;
@@ -156,7 +156,7 @@ const RatingToTwo = styled.div`
     display: flex;
     margin: 30% 0%;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         margin: 1em 0em;
     }
 `;
@@ -165,7 +165,7 @@ const RatingToThree = styled.div`
     display: flex;
     margin: 30% 0%;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         margin: 1em 0em;
     }
 `;
@@ -174,7 +174,7 @@ const RatingToFour = styled.div`
     display: flex;
     margin: 30% 0%;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         margin: 1em 0em;
     }
 `;
@@ -183,7 +183,7 @@ const RatingToFive = styled.div`
     display: flex;
     margin: 30% 0%;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         margin: 1em 0em;
     }
 `;
@@ -191,6 +191,10 @@ const RatingToFive = styled.div`
 const DividingDiv = styled.div`
     width: 50%;
     margin-right: 1em;
+
+    @media (max-width: 490px) {
+        width: 100%;
+    }
 `;
 
 const ContainerSlideShow = styled.div`
@@ -209,7 +213,7 @@ const LeftArrow = styled.div`
     cursor: pointer;
 
     img {
-        @media (max-width: 450px) {
+        @media (max-width: 490px) {
             width: 2em;
         }
     }
@@ -221,7 +225,7 @@ const RightArrow = styled.div`
     cursor: pointer;
 
     img {
-        @media (max-width: 450px) {
+        @media (max-width: 490px) {
             width: 2em;
         }
     }
@@ -234,7 +238,7 @@ const CounterDiv = styled.div`
     font-size: 2em;
     color: #FFFFFF;
 
-    @media (max-width: 450px) {
+    @media (max-width: 490px) {
         display: none;
     }
 `;

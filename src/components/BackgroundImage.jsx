@@ -11,7 +11,7 @@ const GlobalStyleProperties = styled.div`
   min-height: 30vh;
   border-radius: 2em;
 
-  @media (max-width: 450px) {
+  @media (max-width: 490px) {
     min-height: 15vh;
   }
 `;
@@ -26,7 +26,7 @@ const SpecificStyleProperties = styled.div`
   min-height: 75vh;
   border-radius: 2em;
 
-  @media (max-width: 450px) {
+  @media (max-width: 490px) {
     min-height: 33vh;
   }
 `;
@@ -37,7 +37,7 @@ const SloganText = styled.h1`
   top: 32%;
   left: 35%;
 
-  @media (max-width: 450px) {
+  @media (max-width: 490px) {
     top: 11%;
     left: 6%;
     font-weight: 400;

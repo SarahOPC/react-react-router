@@ -14,7 +14,7 @@ const ErrorCode = styled.h1`
   font-size: 18em;
   margin-block: 0em;
 
-  @media (max-width: 450px) {
+  @media (max-width: 490px) {
     font-size: 7em;
     margin-top: 1em;
   }
@@ -23,7 +23,7 @@ const ErrorCode = styled.h1`
 const ErrorText = styled.h1`
   font-size: 2.25em;
 
-  @media (max-width: 450px) {
+  @media (max-width: 490px) {
     font-size: 1.5em;
     font-weight: 400;
     text-align: center;
