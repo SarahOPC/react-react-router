@@ -2,12 +2,10 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
-import BackgroundImage from './BackgroundImage';
 import Dropdown from './Dropdown';
 import InactiveStar from '../assets/star-inactive.png';
 import ActiveStar from '../assets/star-active.png';
-import ToLeftArrow from '../assets/toLeftArrow.png';
-import ToRightArrow from '../assets/toRightArrow.png';
+import { GalleryComponent } from './Gallery';
 
 const Element = styled.p`
     color: black;
@@ -20,7 +18,7 @@ const InfosContainer = styled.div`
     justify-content: space-between;
     margin: 1% 4%;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         flex-direction: column;
     }
 `;
@@ -29,7 +27,7 @@ const OwnerAndRatingDiv = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         flex-direction: row-reverse;
         font-size: 0.5em;
     }
@@ -42,7 +40,7 @@ const ElementTitle = styled.div`
     color: #FF6060;
     font-size: 2.25em;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         font-size: 1.5em;
     }
 `;
@@ -52,7 +50,7 @@ const ElementLocation = styled.div`
     margin: 2% 0% 0% 0%;
     font-size: 1.25em;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         font-size: 0.75em;
     }
 `;
@@ -61,13 +59,13 @@ const ElementTagDiv = styled.div`
     display: flex;
     margin: 1em 0em;
     
-        @media (max-width: 490px) {
+        @media (max-width: 550px) {
             width: 17em;
             margin: 0.5em 0em;
         }
 
     p {
-        @media (max-width: 490px) {
+        @media (max-width: 550px) {
             font-size: 0.75em;
         }
     }
@@ -88,7 +86,7 @@ const HostDiv = styled.div`
     display: flex;
     align-items: center;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         margin-left: 7em;
         margin-bottom: 4em;
     }
@@ -99,7 +97,7 @@ const DropDownsContainer = styled.div`
     justify-content: space-between;
     margin: 1% 4% 3% 4%;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         flex-direction: column;
     }
 `;
@@ -131,12 +129,12 @@ const RatingToZero = styled.div`
     display: flex;
     margin: 1em 0em;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         margin: 1em 9em 5em 0em;
     }
 
     img {
-        @media (max-width: 490px) {
+        @media (max-width: 550px) {
             width: 3em;
             height: 3em;
         }
@@ -147,7 +145,7 @@ const RatingToOne = styled.div`
     display: flex;
     margin: 30% 0%;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         margin: 1em 0em;
     }
 `;
@@ -156,7 +154,7 @@ const RatingToTwo = styled.div`
     display: flex;
     margin: 30% 0%;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         margin: 1em 0em;
     }
 `;
@@ -165,7 +163,7 @@ const RatingToThree = styled.div`
     display: flex;
     margin: 30% 0%;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         margin: 1em 0em;
     }
 `;
@@ -174,7 +172,7 @@ const RatingToFour = styled.div`
     display: flex;
     margin: 30% 0%;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         margin: 1em 0em;
     }
 `;
@@ -183,7 +181,7 @@ const RatingToFive = styled.div`
     display: flex;
     margin: 30% 0%;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         margin: 1em 0em;
     }
 `;
@@ -192,54 +190,8 @@ const DividingDiv = styled.div`
     width: 50%;
     margin-right: 1em;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         width: 100%;
-    }
-`;
-
-const ContainerSlideShow = styled.div`
-    position: relative;
-`;
-
-const Arrows = styled.div`
-    position: absolute;
-    top: 42%;
-    width: 100%;
-`;
-
-const LeftArrow = styled.div`
-    position: absolute;
-    left: 5%;
-    cursor: pointer;
-
-    img {
-        @media (max-width: 490px) {
-            width: 2em;
-        }
-    }
-`;
-
-const RightArrow = styled.div`
-    position: absolute;
-    right: 5%;
-    cursor: pointer;
-
-    img {
-        @media (max-width: 490px) {
-            width: 2em;
-        }
-    }
-`;
-
-const CounterDiv = styled.div`
-    position: absolute;
-    bottom: 4%;
-    left: 48%;
-    font-size: 2em;
-    color: #FFFFFF;
-
-    @media (max-width: 490px) {
-        display: none;
     }
 `;
 
@@ -250,8 +202,6 @@ function SpecificThumb() {
     const [specificElement, setSpecificElement] = useState(null);
     const [location, setLocation] =useState(null);
     const [partOfLocation, setPartOfLocation] =useState(null);
-    // For the carousel
-    const [currentIndex, setCurrentIndex] = useState(0);
     
     useEffect(() => {
         // fetch data with the proxy url
@@ -317,39 +267,9 @@ function SpecificThumb() {
                     break;
             }
 
-            const handleNextImage = () => {
-                // prevIndex is the index of the picture before the update so the currentIndex before update
-                // % = modulo operation = % calculate the remainder of the division between the value on the left side and the value on the right side 
-                // ie here value of prevIndex by the length of the array so result = new index value. Loops back to 0 when length 
-                // example of % use : 15 % 4 = 3 because 15 / 4 = 3 --- 3 * 4 = 12 --- 15 - 12 = 3
-                // what stays after dividing 10 by 3 is 1
-                setCurrentIndex((prevIndex) => (prevIndex + 1) % specificElement.pictures.length);
-            };
-            
-            const handlePreviousImage = () => {
-                setCurrentIndex((prevIndex) => prevIndex === 0 ? specificElement.pictures.length - 1 : prevIndex - 1);
-            };
-
             return (
                 <div>
-                    <ContainerSlideShow>
-                        <BackgroundImage isSpecificPage={true} backgroundImage={ specificElement.pictures[currentIndex] } alt="Pictures of the property"/>
-                        {specificElement.pictures.length > 1 && (
-                        <Arrows>
-                            <LeftArrow>
-                                <img src={ToLeftArrow} alt="To left arrow" onClick={handlePreviousImage} />
-                            </LeftArrow>
-                            <RightArrow>
-                                <img src={ToRightArrow} alt="To right arrow" onClick={handleNextImage} />
-                            </RightArrow>
-                        </Arrows>
-                        )}
-                        {specificElement.pictures.length > 1 && (
-                        <CounterDiv>
-                            <div>{ currentIndex + 1 } / { specificElement.pictures.length }</div>
-                        </CounterDiv>
-                        )}
-                    </ContainerSlideShow>
+                    <GalleryComponent specificElement={specificElement} />
                     <InfosContainer>
                         <TitleAndLocationAndTags>
                             <ElementTitle>{ specificElement.title }</ElementTitle>

@@ -11,22 +11,16 @@ const GlobalStyleProperties = styled.div`
   min-height: 30vh;
   border-radius: 2em;
 
-  @media (max-width: 490px) {
+  @media (max-width: 1150px) {
     min-height: 15vh;
   }
 `;
 
 const SpecificStyleProperties = styled.div`
   background-image: url(${(props) => props.$backgroundimage});
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 75vh;
-  border-radius: 2em;
 
-  @media (max-width: 490px) {
+  @media (max-width: 1150px) {
     min-height: 33vh;
   }
 `;
@@ -37,7 +31,7 @@ const SloganText = styled.h1`
   top: 32%;
   left: 35%;
 
-  @media (max-width: 490px) {
+  @media (max-width: 1150px) {
     top: 11%;
     left: 6%;
     font-weight: 400;
@@ -46,7 +40,7 @@ const SloganText = styled.h1`
 `;
 
 const ImageDivBkgd = styled.div`
-  margin: 4% 4% 1% 4%;
+  margin: auto;
   position: relative;
 `;
 

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const ThumbContainer = styled.div`
-    width: 26em;
+    width: 115%;
     height: 23em;
     background: linear-gradient(to bottom right, #FF6060, #454545);
     display: flex;
@@ -12,9 +12,9 @@ const ThumbContainer = styled.div`
     border-radius: 3%;
 
     @media (max-width: 500px) {
-        width: 19em;
+        width: 110%;
         margin: 3% 0%;
-        height: 15em;
+        height: 76%;
     }
 `;
 
@@ -25,17 +25,17 @@ const ThumbTitle = styled.p`
     font-size: 1.13em;
     width: 11em;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         margin-top: 13%;
     }
 `;
 
 const Picture = styled.img`
-    width: 19em;
+    width: 25em;
     height: 14em;
     border-radius: 0.5em;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         width: 11em;
         height: 9em;
       }
@@ -48,7 +48,7 @@ const PictureContainer = styled.div`
     justify-content: center;
     margin: 5% 0% 13% 0%;
 
-    @media (max-width: 490px) {
+    @media (max-width: 550px) {
         margin: 5% 0% 0% 0%;
       }
 `;

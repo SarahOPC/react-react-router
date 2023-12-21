@@ -8,11 +8,10 @@ const HomeBodyContainer = styled.div`
     border-radius: 1.5em;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: space-around;
     margin: 2% 4% 1% 4%;
 
-    @media(max-width: 490px) {
+    @media(max-width: 550px) {
         justify-content: center;
     }
 `;
