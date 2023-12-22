@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const HomeBodyContainer = styled.div`
     background-color: #F6F6F6;
-    padding: 2%;
+    padding: 4%;
     border-radius: 1.5em;
     display: flex;
     flex-wrap: wrap;
@@ -13,6 +13,8 @@ const HomeBodyContainer = styled.div`
 
     @media(max-width: 550px) {
         justify-content: center;
+        flex-direction: column;
+        width: auto;
     }
 `;
 

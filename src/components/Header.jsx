@@ -6,7 +6,7 @@ const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 4%;
+    margin: 1% 4% 2.5% 4%;;
 `;
 
 const NavLinkItem = styled.div`
@@ -20,10 +20,20 @@ const NavLinkItem = styled.div`
         text-decoration: none;
         color: #FF6060;
         font-size: 1.5em;
+
+        @media (max-width: 550px) {
+            margin-right: 1em;
+        }
     }
 
     .active {
         text-decoration: underline;
+    }
+
+    @media (max-width: 550px) {
+        font-size: 0.5em;
+        text-transform: uppercase;
+        width: max-content;
     }
 `;
 

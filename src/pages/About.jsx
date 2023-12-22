@@ -1,5 +1,4 @@
 import Header from "../components/Header";
-import BackgroundImage from "../components/BackgroundImage";
 import aboutImage from "../assets/about.svg";
 import Footer from "../components/Footer";
 import DropDown from "../components/Dropdown";
@@ -11,14 +10,39 @@ const AboutDropdownContainer = styled.div`
   @media (max-width: 550px) {
     margin: 10% 5%;
   }
-`
+`;
+
+const Image = styled.img`
+  border-radius: 2em;
+  transform: scale(1.4);
+
+  @media (max-width: 1780px) {
+    width: 100%;
+    height: 17em;
+    border-radius: 1.5em;
+    transform: scale(1);
+  }
+`;
+
+const ImageContainer = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 3.5em;
+  margin-bottom: 4.5em;
+  
+  @media (max-width: 550px) {
+    margin-bottom: 0em;
+  }
+`;
 
 function About() {
   
   return (
-    <div>
+    <div  style={{overflow: 'hidden'}}>
       <Header />
-      <BackgroundImage isSpecificPage={true} backgroundImage={aboutImage} alt="Vue de montagnes" />
+      <ImageContainer>
+        <Image src={aboutImage} alt="Vue de montagnes" />
+      </ImageContainer>
       <AboutDropdownContainer>
         <DropDown rectangleTitle="Fiabilité" content="Les annonces postées sur Kasa garantissent une fiabilité totale. 
         Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées  par nos équipes." />

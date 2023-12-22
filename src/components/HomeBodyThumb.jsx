@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const ThumbContainer = styled.div`
-    width: 115%;
+    width: 100%;
     height: 23em;
     background: linear-gradient(to bottom right, #FF6060, #454545);
     display: flex;
@@ -12,8 +12,8 @@ const ThumbContainer = styled.div`
     border-radius: 3%;
 
     @media (max-width: 500px) {
-        width: 110%;
-        margin: 3% 0%;
+        width: 100%;
+        margin: 6% 0%;
         height: 76%;
     }
 `;
@@ -34,10 +34,12 @@ const Picture = styled.img`
     width: 25em;
     height: 14em;
     border-radius: 0.5em;
-
+    margin: -4% 1% 1% 1%;
+    max-width: 97%;
+    
     @media (max-width: 550px) {
-        width: 11em;
-        height: 9em;
+        width: 15em;
+        height: 10em;
       }
 `;
 
@@ -50,13 +52,13 @@ const PictureContainer = styled.div`
 
     @media (max-width: 550px) {
         margin: 5% 0% 0% 0%;
-      }
+    }
 `;
 
 function HomeBodyThumb({ title, id, cover }) {
 
     return (
-        <Link to={`/thumb/${id}`} style={{margin: "0% 2% 0% 2%"}}>
+        <Link to={`/thumb/${id}`} >
             <ThumbContainer key = {id}>
                 <PictureContainer>
                     <Picture src={cover} alt={title} />

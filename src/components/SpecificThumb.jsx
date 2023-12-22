@@ -187,7 +187,7 @@ const RatingToFive = styled.div`
 `;
 
 const DividingDiv = styled.div`
-    width: 50%;
+    width: 47.5%;
     margin-right: 1em;
 
     @media (max-width: 550px) {

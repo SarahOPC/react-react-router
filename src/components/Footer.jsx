@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const FooterDiv = styled.div`
     background-color: #000000;
-    background-size: 100vh;
     height: 13em;
     display: flex;
     justify-content: center;

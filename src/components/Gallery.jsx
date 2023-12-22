@@ -4,9 +4,6 @@ import ToLeftArrow from '../assets/toLeftArrow.png';
 import ToRightArrow from '../assets/toRightArrow.png';
 import { useState } from 'react';
 
-const GalleryContainer = styled.div`
-`;
-
 const LeftArrow = styled.div`
     position: absolute;
     left: 5%;
@@ -72,26 +69,24 @@ function GalleryComponent({specificElement}) {
     };
 
     return (
-        <GalleryContainer>
-            <ContainerSlideShow>
-                        <BackgroundImage isSpecificPage={true} backgroundImage={ specificElement.pictures[currentIndex] } alt="Pictures of the property"/>
-                        {specificElement.pictures.length > 1 && (
-                        <Arrows>
-                            <LeftArrow>
-                                <img src={ToLeftArrow} alt="To left arrow" onClick={handlePreviousImage} />
-                            </LeftArrow>
-                            <RightArrow>
-                                <img src={ToRightArrow} alt="To right arrow" onClick={handleNextImage} />
-                            </RightArrow>
-                        </Arrows>
-                        )}
-                        {specificElement.pictures.length > 1 && (
-                        <CounterDiv>
-                            <div>{ currentIndex + 1 } / { specificElement.pictures.length }</div>
-                        </CounterDiv>
-                        )}
-                    </ContainerSlideShow>
-        </GalleryContainer>
+        <ContainerSlideShow>
+            <BackgroundImage isSpecificPage={true} backgroundImage={ specificElement.pictures[currentIndex] } alt="Pictures of the property"/>
+            {specificElement.pictures.length > 1 && (
+            <Arrows>
+                <LeftArrow>
+                    <img src={ToLeftArrow} alt="To left arrow" onClick={handlePreviousImage} />
+                </LeftArrow>
+                <RightArrow>
+                    <img src={ToRightArrow} alt="To right arrow" onClick={handleNextImage} />
+                </RightArrow>
+            </Arrows>
+            )}
+            {specificElement.pictures.length > 1 && (
+            <CounterDiv>
+                <div>{ currentIndex + 1 } / { specificElement.pictures.length }</div>
+            </CounterDiv>
+            )}
+        </ContainerSlideShow>
     )
 }
 

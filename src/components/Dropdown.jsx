@@ -49,17 +49,15 @@ function DropDown({ rectangleTitle, content, customHeight }) {
     };
 
     return(
-        <div>
-            <DescriptionTotalRectangle>
-                <TitleRectangle onClick={handleClick}>
-                    { rectangleTitle }
-                    <ChevronIcon src={isOpen ? ChevronUpIcon : ChevronDownIcon} alt="Chevron Icon" />
-                </TitleRectangle>
-                {isOpen && (
-                    <ContentRectangle customHeight={customHeight}>{ content }</ContentRectangle>
-                )}
-            </DescriptionTotalRectangle>
-        </div>
+        <DescriptionTotalRectangle>
+            <TitleRectangle onClick={handleClick}>
+                { rectangleTitle }
+                <ChevronIcon src={isOpen ? ChevronUpIcon : ChevronDownIcon} alt="Chevron Icon" />
+            </TitleRectangle>
+            {isOpen && (
+                <ContentRectangle customHeight={customHeight}>{ content }</ContentRectangle>
+            )}
+        </DescriptionTotalRectangle>
     );
 }
 
