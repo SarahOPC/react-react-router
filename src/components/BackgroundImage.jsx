@@ -29,8 +29,10 @@ const SpecificStyleProperties = styled.div`
   background-position: center;
   border-radius: 2em;
 
-  @media (max-width: 1150px) {
+  @media (max-width: 1780px) {
     margin-left: 0.5em;
+    min-height: 34vh;
+    width: auto;
   }
 `;
 

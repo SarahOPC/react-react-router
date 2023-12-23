@@ -87,7 +87,7 @@ const HostDiv = styled.div`
     align-items: center;
 
     @media (max-width: 550px) {
-        margin-left: 7em;
+        margin-left: 17em;
         margin-bottom: 4em;
     }
 `;

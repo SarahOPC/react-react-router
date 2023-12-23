@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
-import Footer from "../components/Footer";
 
 const ErrorDiv = styled.div`
   color: #FF6060;
@@ -24,7 +23,7 @@ const ErrorText = styled.h1`
   font-size: 2.25em;
 
   @media (max-width: 550px) {
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 400;
     text-align: center;
   }
@@ -36,6 +35,10 @@ const ErrorReturn = styled.p`
   a {
     color: #FF6060;
     font-size: 0.75em;
+  }
+
+  @media (max-width: 550px) {
+    font-size: 1.7em;
   }
 `;
 
@@ -53,7 +56,6 @@ function Error() {
           </NavLink>
         </ErrorReturn>
       </ErrorDiv>
-      <Footer />
     </div>
   );
 }
