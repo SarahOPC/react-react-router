@@ -11,7 +11,7 @@ const ThumbContainer = styled.div`
     margin: 3% 0% 12% 0%;
     border-radius: 3%;
 
-    @media (max-width: 500px) {
+    @media (max-width: 550px) {
         margin: 6% 0%;
         height: 76%;
     }
@@ -35,6 +35,10 @@ const Picture = styled.img`
     border-radius: 0.5em;
     margin: -4% 1% 1% 1%;
     max-width: 97%;
+
+    @media (max-width: 550px) {
+        margin: -1% 1% 1% 1%;
+    }
 `;
 
 const PictureContainer = styled.div`

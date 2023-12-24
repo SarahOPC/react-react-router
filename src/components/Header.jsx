@@ -6,7 +6,7 @@ const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 1% 4% 2.5% 4%;;
+    margin: 1% 4% 2.5% 4%;
 `;
 
 const NavLinkItem = styled.div`

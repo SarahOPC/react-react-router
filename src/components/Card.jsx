@@ -15,6 +15,8 @@ const HomeBodyContainer = styled.div`
         justify-content: center;
         flex-direction: column;
         width: auto;
+        background-color: transparent;
+        padding: 0%;
     }
 `;
 

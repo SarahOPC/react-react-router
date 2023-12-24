@@ -8,7 +8,7 @@ const AboutDropdownContainer = styled.div`
   margin: 0% 15%;
 
   @media (max-width: 550px) {
-    margin: 10% 5%;
+    margin: 5% 5%;
   }
 `;
 
@@ -22,6 +22,10 @@ const Image = styled.img`
     border-radius: 1.5em;
     transform: scale(1);
   }
+
+  @media (max-width: 550px) {
+    width: 90%;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -32,6 +36,7 @@ const ImageContainer = styled.div`
   
   @media (max-width: 550px) {
     margin-bottom: 0em;
+    margin-top: 0em;
   }
 `;
 

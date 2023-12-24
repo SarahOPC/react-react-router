@@ -48,6 +48,10 @@ const SloganText = styled.h1`
     font-weight: 100;
     white-space: pre-wrap;
   }
+
+  @media (max-width: 550px) {
+    top: 4%;
+  }
 `;
 
 const ImageDivBkgd = styled.div`

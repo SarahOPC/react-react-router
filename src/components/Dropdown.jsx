@@ -32,6 +32,10 @@ const ContentRectangle = styled.div`
         font-size: 1em;
         margin-block-start: 0em;
     }
+
+    @media (max-width: 550px) {
+        height: auto;
+    }
 `;
 
 const DescriptionTotalRectangle = styled.div`
