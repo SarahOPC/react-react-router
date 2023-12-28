@@ -59,13 +59,13 @@ const ElementTagDiv = styled.div`
     display: flex;
     margin: 1em 0em;
     
-        @media (max-width: 550px) {
+        @media (max-width: 850px) {
             width: 17em;
             margin: 0.5em 0em;
         }
 
     p {
-        @media (max-width: 550px) {
+        @media (max-width: 850px) {
             font-size: 0.75em;
         }
     }
@@ -87,7 +87,7 @@ const HostDiv = styled.div`
     align-items: center;
 
     @media (max-width: 550px) {
-        margin-left: 17em;
+        margin-left: 4em;
         margin-bottom: 4em;
     }
 `;

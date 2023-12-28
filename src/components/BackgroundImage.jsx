@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const GlobalStyleProperties = styled.div`
-  filter: brightness(0.7);
   background-image: url(${(props) => props.$backgroundimage});
   background-position: center;
   background-size: cover;
@@ -11,7 +10,7 @@ const GlobalStyleProperties = styled.div`
   min-height: 30vh;
   border-radius: 2em;
   background-repeat: no-repeat;
-  margin: 0em 4em;
+  position: relative;
 
   @media (max-width: 1150px) {
     min-height: 15vh;
@@ -22,15 +21,14 @@ const GlobalStyleProperties = styled.div`
 const SpecificStyleProperties = styled.div`
   background-image: url(${(props) => props.$backgroundimage});
   min-height: 55vh;
-  margin-left: 4.5em;
-  width: 108em;
+  margin: 4.5em 0em;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 2em;
 
   @media (max-width: 1780px) {
-    margin-left: 0.5em;
+    margin: 0.5em;
     min-height: 34vh;
     width: auto;
   }
@@ -38,25 +36,29 @@ const SpecificStyleProperties = styled.div`
 
 const SloganText = styled.h1`
   color: #FFFFFF;
-  position: absolute;
-  top: 32%;
-  left: 35%;
+  z-index: 1;
 
   @media (max-width: 1150px) {
-    top: 11%;
-    left: 6%;
     font-weight: 100;
     white-space: pre-wrap;
-  }
-
-  @media (max-width: 550px) {
-    top: 4%;
   }
 `;
 
 const ImageDivBkgd = styled.div`
-  margin: auto;
+  margin: 0em 4.5em;
   position: relative;
+
+  @media (max-width: 1150px) {
+    margin: 0em;
+  }
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2em;
 `;
 
 function BackgroundImage({ backgroundImage, alt, slogan, isSpecificPage }) {
@@ -69,8 +71,10 @@ function BackgroundImage({ backgroundImage, alt, slogan, isSpecificPage }) {
     return (
       <div>
       <ImageDivBkgd>
-        <BackgroundComponent $backgroundimage={backgroundImage} alt={alt} />
-        <SloganText>{formattedSlogan}</SloganText>
+        <BackgroundComponent $backgroundimage={backgroundImage} alt={alt}>
+          <Overlay />
+          <SloganText>{formattedSlogan}</SloganText>
+        </BackgroundComponent>
       </ImageDivBkgd>
       </div>
     );

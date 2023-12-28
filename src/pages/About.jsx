@@ -16,9 +16,9 @@ const Image = styled.img`
   border-radius: 2em;
   transform: scale(1.4);
 
-  @media (max-width: 1780px) {
+  @media (max-width: 1300px) {
     width: 100%;
-    height: 17em;
+    height: 13em;
     border-radius: 1.5em;
     transform: scale(1);
   }
