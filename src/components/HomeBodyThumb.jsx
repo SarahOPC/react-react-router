@@ -19,7 +19,7 @@ const ThumbContainer = styled.div`
 
 const ThumbTitle = styled.p`
     color: white;
-    margin-bottom: 1.5em;
+    margin-bottom: 0.3em;
     margin-inline-start: 1.5em;
     font-size: 1.13em;
     width: 11em;

@@ -12,25 +12,23 @@ const GlobalStyleProperties = styled.div`
   background-repeat: no-repeat;
   position: relative;
 
-  @media (max-width: 1150px) {
-    min-height: 15vh;
+  @media (max-width: 900px) {
+    min-height: 223px;
     margin: 0em 1em;
   }
 `;
 
 const SpecificStyleProperties = styled.div`
   background-image: url(${(props) => props.$backgroundimage});
-  min-height: 55vh;
+  height: 223px;
   margin: 4.5em 0em;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 2em;
 
-  @media (max-width: 1780px) {
+  @media (max-width: 900px) {
     margin: 0.5em;
-    min-height: 34vh;
-    width: auto;
   }
 `;
 
@@ -38,7 +36,8 @@ const SloganText = styled.h1`
   color: #FFFFFF;
   z-index: 1;
 
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
+    font-family: 'Montserrat';
     font-weight: 100;
     white-space: pre-wrap;
   }
@@ -48,7 +47,7 @@ const ImageDivBkgd = styled.div`
   margin: 0em 4.5em;
   position: relative;
 
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     margin: 0em;
   }
 `;
@@ -56,9 +55,13 @@ const ImageDivBkgd = styled.div`
 const Overlay = styled.div`
   position: absolute;
   width: 100%;
-  height: 100%;
+  min-height: 223px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 2em;
+
+  @media (min-width: 500px) {
+    height: 100%;
+  }
 `;
 
 function BackgroundImage({ backgroundImage, alt, slogan, isSpecificPage }) {

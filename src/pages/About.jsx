@@ -8,19 +8,24 @@ const AboutDropdownContainer = styled.div`
   margin: 0% 15%;
 
   @media (max-width: 550px) {
-    margin: 5% 5%;
+    margin: 3% 5%;
   }
 `;
 
 const Image = styled.img`
-  border-radius: 2em;
   transform: scale(1.4);
+  border-radius: 2em;
+  margin-right: 4.5em;
+  margin-left: 4.5em;
+  height: 223px;
+  width: 1240px;
 
-  @media (max-width: 1300px) {
-    width: 100%;
-    height: 13em;
-    border-radius: 1.5em;
+  @media (max-width: 900px) {
     transform: scale(1);
+    width: 100%;
+    height: 17em;
+    border-radius: 1.5em;
+    margin: 0em;
   }
 
   @media (max-width: 550px) {
@@ -43,7 +48,7 @@ const ImageContainer = styled.div`
 function About() {
   
   return (
-    <div  style={{overflow: 'hidden'}}>
+    <div>
       <Header />
       <ImageContainer>
         <Image src={aboutImage} alt="Vue de montagnes" />

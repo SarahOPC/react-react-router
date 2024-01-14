@@ -18,7 +18,7 @@ const InfosContainer = styled.div`
     justify-content: space-between;
     margin: 1% 4%;
 
-    @media (max-width: 550px) {
+    @media (max-width: 900px) {
         flex-direction: column;
     }
 `;
@@ -59,13 +59,13 @@ const ElementTagDiv = styled.div`
     display: flex;
     margin: 1em 0em;
     
-        @media (max-width: 850px) {
+        @media (max-width: 550px) {
             width: 17em;
             margin: 0.5em 0em;
         }
 
     p {
-        @media (max-width: 850px) {
+        @media (max-width: 550px) {
             font-size: 0.75em;
         }
     }
@@ -87,7 +87,7 @@ const HostDiv = styled.div`
     align-items: center;
 
     @media (max-width: 550px) {
-        margin-left: 4em;
+        margin-left: 11em;
         margin-bottom: 4em;
     }
 `;
@@ -105,7 +105,6 @@ const DropDownsContainer = styled.div`
 const StyledDropdown = styled(Dropdown)`
     flex: 1;
     margin-right: 1em;
-    height: ${(props) => props.customHeight};
 `;
 
 const ElementHostName = styled.div`
@@ -304,12 +303,12 @@ function SpecificThumb() {
                     </InfosContainer>
                     <DropDownsContainer>
                         <DividingDiv>
-                            <StyledDropdown rectangleTitle="Description" content={specificElement.description} customHeight="11em" />
+                            <StyledDropdown rectangleTitle="Description" content={specificElement.description} />
                         </DividingDiv>
                         <DividingDiv>
                             <StyledDropdown rectangleTitle="Équipements" content={specificElement.equipments.map((equipment, index) => (
                                 <Element key={index}>{ equipment }</Element>
-                            ))} customHeight="11em" />
+                            ))} />
                         </DividingDiv>
                     </DropDownsContainer>
                 </div>

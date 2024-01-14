@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const LeftArrow = styled.div`
     position: absolute;
-    left: 5%;
+    left: 3%;
     cursor: pointer;
 
     img {
@@ -28,7 +28,7 @@ const Arrows = styled.div`
 
 const RightArrow = styled.div`
     position: absolute;
-    right: 5%;
+    right: 3%;
     cursor: pointer;
 
     img {
@@ -40,9 +40,9 @@ const RightArrow = styled.div`
 
 const CounterDiv = styled.div`
     position: absolute;
-    bottom: 4%;
-    left: 48%;
-    font-size: 2em;
+    bottom: 7%;
+    left: 50%;
+    font-size: 1.3em;
     color: #FFFFFF;
 
     @media (max-width: 550px) {
@@ -83,7 +83,7 @@ function GalleryComponent({specificElement}) {
             )}
             {specificElement.pictures.length > 1 && (
             <CounterDiv>
-                <div>{ currentIndex + 1 } / { specificElement.pictures.length }</div>
+                <div>{ currentIndex + 1 }/{ specificElement.pictures.length }</div>
             </CounterDiv>
             )}
         </ContainerSlideShow>
