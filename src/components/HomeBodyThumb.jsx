@@ -37,7 +37,7 @@ const Picture = styled.img`
     max-width: 97%;
 
     @media (max-width: 550px) {
-        margin: -1% 1% 1% 1%;
+        margin: -3% 1% 1% 1%;
     }
 `;
 

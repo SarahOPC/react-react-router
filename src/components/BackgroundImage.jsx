@@ -7,13 +7,13 @@ const GlobalStyleProperties = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 30vh;
-  border-radius: 2em;
+  border-radius: 1em;
   background-repeat: no-repeat;
   position: relative;
+  height: 15em;
 
   @media (max-width: 900px) {
-    min-height: 223px;
+    height: 7em;
     margin: 0em 1em;
   }
 `;
@@ -25,7 +25,7 @@ const SpecificStyleProperties = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 2em;
+  border-radius: 1em;
 
   @media (max-width: 900px) {
     margin: 0.5em;
@@ -35,11 +35,13 @@ const SpecificStyleProperties = styled.div`
 const SloganText = styled.h1`
   color: #FFFFFF;
   z-index: 1;
+  position: absolute;
+  left: 35%;  
 
   @media (max-width: 900px) {
-    font-family: 'Montserrat';
     font-weight: 100;
     white-space: pre-wrap;
+    left: 5%;
   }
 `;
 
@@ -55,11 +57,11 @@ const ImageDivBkgd = styled.div`
 const Overlay = styled.div`
   position: absolute;
   width: 100%;
-  min-height: 223px;
+  height: 100%;
   background: rgba(0, 0, 0, 0.3);
-  border-radius: 2em;
+  border-radius: 1em;
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     height: 100%;
   }
 `;

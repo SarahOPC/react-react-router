@@ -14,22 +14,22 @@ const AboutDropdownContainer = styled.div`
 
 const Image = styled.img`
   transform: scale(1.4);
-  border-radius: 2em;
+  border-radius: 1em;
   margin-right: 4.5em;
   margin-left: 4.5em;
   height: 223px;
-  width: 1240px;
+  width: 77em;
 
   @media (max-width: 900px) {
-    transform: scale(1);
     width: 100%;
     height: 17em;
-    border-radius: 1.5em;
+    border-radius: 1em;
     margin: 0em;
   }
 
   @media (max-width: 550px) {
-    width: 90%;
+    transform: scale(1);
+    border-radius: 2em;
   }
 `;
 
@@ -38,10 +38,12 @@ const ImageContainer = styled.div`
   text-align: center;
   margin-top: 3.5em;
   margin-bottom: 4.5em;
+  border-radius: 1em;
   
   @media (max-width: 550px) {
     margin-bottom: 0em;
     margin-top: 0em;
+    border-radius: 2em;
   }
 `;
 
